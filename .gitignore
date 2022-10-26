@@ -3,3 +3,5 @@
 package-lock.json
 /build
 .eslintcache
+yarn.lock
+yarn-error.log
