@@ -16,11 +16,12 @@
 
 */
 import Index from "views/super_admin/Index.js";
-import Profile from "views/examples/Profile.js";
-import Maps from "views/examples/Maps.js";
-import Register from "views/authentication/Register.js";
-import Login from "views/authentication/Login.js";
-import Tables from "views/examples/Tables.js";
+import Admins from "views/super_admin/Admins.js";
+// import Profile from "views/examples/Profile.js";
+// import Maps from "views/examples/Maps.js";
+// import Register from "views/authentication/Register.js";
+// import Login from "views/authentication/Login.js";
+// import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
 
 var super_admin = [{
@@ -37,40 +38,40 @@ var super_admin = [{
         component: Icons,
         layout: "/admin"
     },
+    // {
+    //     path: "/maps",
+    //     name: "Maps",
+    //     icon: "ni ni-pin-3 text-orange",
+    //     component: Maps,
+    //     layout: "/admin"
+    // },
     {
-        path: "/maps",
-        name: "Maps",
-        icon: "ni ni-pin-3 text-orange",
-        component: Maps,
-        layout: "/admin"
-    },
-    {
-        path: "/user-profile",
-        name: "User Profile",
+        path: "/List-Admin",
+        name: "Admins",
         icon: "ni ni-single-02 text-yellow",
-        component: Profile,
+        component: Admins,
         layout: "/admin"
     },
-    {
-        path: "/tables",
-        name: "Tables",
-        icon: "ni ni-bullet-list-67 text-red",
-        component: Tables,
-        layout: "/admin"
-    },
-    {
-        path: "/login",
-        name: "Login",
-        icon: "ni ni-key-25 text-info",
-        component: Login,
-        layout: "/auth"
-    },
-    {
-        path: "/register",
-        name: "Register",
-        icon: "ni ni-circle-08 text-pink",
-        component: Register,
-        layout: "/auth"
-    }
+    // {
+    //     path: "/tables",
+    //     name: "Tables",
+    //     icon: "ni ni-bullet-list-67 text-red",
+    //     component: Tables,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/login",
+    //     name: "Login",
+    //     icon: "ni ni-key-25 text-info",
+    //     component: Login,
+    //     layout: "/auth"
+    // },
+    // {
+    //     path: "/register",
+    //     name: "Register",
+    //     icon: "ni ni-circle-08 text-pink",
+    //     component: Register,
+    //     layout: "/auth"
+    // }
 ];
 export default super_admin;
