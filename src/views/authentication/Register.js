@@ -31,8 +31,16 @@ import {
   Row,
   Col
 } from "reactstrap";
+import {
+  useState
+} from "react";
 
 const Register = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [name, setName] = useState("")
+  const [cPassword, setCPassword] = useState("")
+
   return (
     <>
       <Col lg="6" md="8">
@@ -116,6 +124,20 @@ const Register = () => {
                   </InputGroupAddon>
                   <Input
                     placeholder="Password"
+                    type="password"
+                    autoComplete="new-password"
+                  />
+                </InputGroup>
+              </FormGroup>
+              <FormGroup>
+                <InputGroup className="input-group-alternative">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>
+                      <i className="ni ni-lock-circle-open" />
+                    </InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    placeholder="Confirm Password"
                     type="password"
                     autoComplete="new-password"
                   />

@@ -31,8 +31,30 @@ import {
   Row,
   Col
 } from "reactstrap";
+import { useState } from "react";
+
+import {
+  NotificationManager
+} from 'react-notifications';
+import {
+  useHistory
+} from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const onLogin = () => {
+    history.push("/admin");
+  }
+
+
   return (
     <>
       <Col lg="5" md="7">
@@ -59,6 +81,7 @@ const Login = () => {
                 </span>
                 <span className="btn-inner--text">Github</span>
               </Button>
+          
               <Button
                 className="btn-neutral btn-icon"
                 color="default"
@@ -94,6 +117,7 @@ const Login = () => {
                     placeholder="Email"
                     type="email"
                     autoComplete="new-email"
+                    value={email} onChange={e => setEmail(e.target.value)}
                   />
                 </InputGroup>
               </FormGroup>
@@ -108,6 +132,7 @@ const Login = () => {
                     placeholder="Password"
                     type="password"
                     autoComplete="new-password"
+                    value={password} onChange={e => setPassword(e.target.value)}
                   />
                 </InputGroup>
               </FormGroup>
@@ -125,33 +150,32 @@ const Login = () => {
                 </label>
               </div>
               <div className="text-center">
-                <Button className="my-4" color="primary" type="button">
-                  Sign in
-                </Button>
+                {
+                  isValidEmail(email) && password.length > 7 ? 
+                    <>
+                      <Button className="my-4" color="primary" type="button" 
+                        onClick={() => {
+                          onLogin();
+
+                      }}
+                      >
+                        Sign in
+                      </Button>
+                    </> :
+                    <>
+                      <Button className="my-4" color="primary" type="button" disabled
+                        onClick={() => {
+                          console.log("Check");
+                      }}
+                      >
+                        Sign in
+                      </Button>
+                    </>
+                }
               </div>
             </Form>
           </CardBody>
         </Card>
-        <Row className="mt-3">
-          <Col xs="6">
-            <a
-              className="text-light"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              <small>Forgot password?</small>
-            </a>
-          </Col>
-          <Col className="text-right" xs="6">
-            <a
-              className="text-light"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              <small>Create new account</small>
-            </a>
-          </Col>
-        </Row>
       </Col>
     </>
   );
