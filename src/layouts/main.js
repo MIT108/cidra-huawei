@@ -22,11 +22,7 @@ import { Container, Row, Col } from "reactstrap";
 
 // core components
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
-import {
-  NotificationContainer,
-  NotificationManager
-} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import AuthFooter from "components/Footers/AuthFooter.js";
 
 import routes from "routes.js";
 
@@ -62,34 +58,10 @@ const Auth = (props) => {
     });
   };
 
-  const createNotification = (type) => {
-    return () => {
-      switch (type) {
-        case 'info':
-          NotificationManager.info('Info message');
-          break;
-        case 'success':
-          NotificationManager.success('Success message', 'Title here');
-          break;
-        case 'warning':
-          NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-          break;
-        case 'error':
-          NotificationManager.error('Error message', 'Click me!', 5000, () => {
-            alert('callback');
-          });
-          break;
-      }
-    };
-  };
-
   return (
     <>
       <div className="main-content" ref={mainContent}>
-        
         <AuthNavbar />
-        <NotificationContainer/>
-
         <div className="header bg-gradient-info py-7 py-lg-8">
           {/* <Container>
             <div className="header-body text-center mb-7">
@@ -121,7 +93,7 @@ const Auth = (props) => {
           </div>
         </div>
         {/* Page content */}
-        <Container className="mt--8 pb-5" >
+        <Container className="mt--8 pb-5">
           <Row className="justify-content-center">
             <Switch>
               {getRoutes(routes)}
