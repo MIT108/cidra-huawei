@@ -28,7 +28,7 @@ import {
 } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
-import routes from "routes.js";
+import routes from "route";
 
 const Auth = (props) => {
   const mainContent = React.useRef(null);
