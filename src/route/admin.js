@@ -16,13 +16,36 @@
 
 */
 import Index from "views/admin/Index.js";
+import Doctors from "views/admin/Doctors.js";
+import Hospitals from "views/admin/Hospitals.js";
 
 var admin = [{
-        path: "/Admin",
-        name: "Admin Dashboard",
-        icon: "ni ni-tv-2 text-primary",
-        component: Index,
-        layout: "/admin"
-    },
+    path: "/Admin",
+    name: "Admin Dashboard",
+    icon: "ni ni-tv-2 text-primary",
+    component: Index,
+    layout: "/admin"
+},
+{
+    path: "/Admin-Hospitals",
+    name: "Hospitals",
+    icon: "ni ni-building text-primary",
+    component: Hospitals,
+    layout: "/admin"
+},
+{
+    path: "/Admin-Doctors",
+    name: "Doctors",
+    icon: "ni ni-single-02",
+    component: Doctors,
+    layout: "/admin"
+},
+{
+    path: "/Admin",
+    name: "Pharmacies",
+    icon: "ni ni-building text-danger",
+    component: Index,
+    layout: "/admin"
+},
 ];
 export default admin;
