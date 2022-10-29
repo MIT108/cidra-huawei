@@ -35,7 +35,12 @@ import {
   Table,
   Container,
   Row,
-  Col
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  Col,
+  ButtonDropdown
 } from "reactstrap";
 
 // core components
@@ -46,6 +51,7 @@ import {
   chartExample2
 } from "variables/charts.js";
 
+import AdminPagesHeader from "components/Headers/AdminPagesHeader.js";
 import Header from "components/Headers/Header.js";
 
 const Index = (props) => {
@@ -63,7 +69,8 @@ const Index = (props) => {
   };
   return (
     <>
-      <Header />
+      <AdminPagesHeader />
+
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row className="mt-5">
@@ -73,16 +80,6 @@ const Index = (props) => {
                 <Row className="align-items-center">
                   <div className="col">
                     <h3 className="mb-0">Doctors</h3>
-                  </div>
-                  <div className="col text-right">
-                        <Button
-                        color="primary"
-                        href="#pablo1"
-                        onClick={(e) => e.preventDefault()}
-                        size="sm"
-                        >
-                        Non Verified
-                        </Button>
                   </div>
                 </Row>
               </CardHeader>
@@ -98,146 +95,143 @@ const Index = (props) => {
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">/argon/</th>
-                    <td>4,569</td>
-                    <td>340</td>
+                    <th scope="row">1</th>
+                    <td>Tanue Monette</td>
+                    <td>CMA Nkomo</td>
                     <td>
-                      <i className="fas fa-arrow-up text-success mr-3" /> 46,53%
+                      <i className=" text-success mr-3" />se17.23.2022
                     </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/index.html</th>
-                    <td>3,985</td>
-                    <td>319</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-warning mr-3" />{" "}
-                      46,53%
-                    </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
+                    <td className="text-right">
+                      <UncontrolledDropdown>
+                        <DropdownToggle
+                          className="btn-icon-only text-light"
+                          href="#pablo"
+                          role="button"
+                          size="sm"
+                          color=""
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <i className="fas fa-ellipsis-v" />
+                        </DropdownToggle>
+                        <DropdownMenu className="dropdown-menu-arrow" right>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}>
+                            <ButtonDropdown>
+                              View
+                            </ButtonDropdown>
+                            
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()} >
+                            <ButtonDropdown>
+                              Edit
+                            </ButtonDropdown>
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()} >
+                            <ButtonDropdown>
+                              Verify
+                            </ButtonDropdown>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row">/argon/charts.html</th>
-                    <td>3,513</td>
-                    <td>294</td>
+                    <th scope="row">2</th>
+                    <td>Mba Royce</td>
+                    <td>Regional Hospital</td>
                     <td>
-                      <i className="fas fa-arrow-down text-warning mr-3" />{" "}
-                      36,49%
+                      <i className="text-warning mr-3" />{" "}
+                      se17.23.2022
                     </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/tables.html</th>
-                    <td>2,050</td>
-                    <td>147</td>
-                    <td>
-                      <i className="fas fa-arrow-up text-success mr-3" /> 50,87%
-                    </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
+                    <td className="text-right">
+                      <UncontrolledDropdown>
+                        <DropdownToggle
+                          className="btn-icon-only text-light"
+                          href="#pablo"
+                          role="button"
+                          size="sm"
+                          color=""
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <i className="fas fa-ellipsis-v" />
+                        </DropdownToggle>
+                        <DropdownMenu className="dropdown-menu-arrow" right>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}>
+                            <ButtonDropdown>
+                              View
+                            </ButtonDropdown>
+                            
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()} >
+                            <ButtonDropdown>
+                              Edit
+                            </ButtonDropdown>
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()} >
+                            <ButtonDropdown>
+                              Verify
+                            </ButtonDropdown>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row">/argon/profile.html</th>
-                    <td>1,795</td>
-                    <td>190</td>
+                    <th scope="row">3</th>
+                    <td>MIT</td>
+                    <td>Main de secour</td>
                     <td>
-                      <i className="fas fa-arrow-down text-danger mr-3" />{" "}
-                      46,53%
+                      <i className=" text-warning mr-3" />{" "}
+                      ms.20cm2022
                     </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
+                    <td className="text-right">
+                      <UncontrolledDropdown>
+                        <DropdownToggle
+                          className="btn-icon-only text-light"
+                          href="#pablo"
+                          role="button"
+                          size="sm"
+                          color=""
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <i className="fas fa-ellipsis-v" />
+                        </DropdownToggle>
+                        <DropdownMenu className="dropdown-menu-arrow" right>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}>
+                            <ButtonDropdown>
+                              View
+                            </ButtonDropdown>
+                            
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()} >
+                            <ButtonDropdown>
+                              Edit
+                            </ButtonDropdown>
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}>
+                            <ButtonDropdown>
+                              Verify
+                            </ButtonDropdown>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
                     </td>
                   </tr>
                 </tbody>

@@ -44,9 +44,11 @@ import {
   parseOptions,
   chartExample1,
   chartExample2
-} from "variables/charts.js";
+} 
+from "variables/charts.js";
 
-import Header from "components/Headers/Header.js";
+import HospitalData from "./HospitalData.js";
+import MinAdminHeader from "components/Headers/MinAdminHeader.js";
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
@@ -63,7 +65,7 @@ const Index = (props) => {
   };
   return (
     <>
-      <Header />
+      <MinAdminHeader />
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>

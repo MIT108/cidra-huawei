@@ -31,11 +31,19 @@ import {
   NavItem,
   NavLink,
   Nav,
-  Progress,
-  Table,
   Container,
   Row,
-  Col
+  Col,
+  Badge,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  Media,
+  Progress,
+  Table,
+  UncontrolledTooltip,
+  ButtonDropdown
 } from "reactstrap";
 
 // core components
@@ -43,11 +51,13 @@ import {
   chartOptions,
   parseOptions,
   chartExample1,
-  chartExample2
+  chartExample2,
 } from "variables/charts.js";
 
-import Header from "components/Headers/Header.js";
+import AdminPagesHeader from "components/Headers/AdminPagesHeader.js";
 import Forms from "components/Forms";
+import Hospitals from "./HospitalData.js";
+
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
@@ -63,32 +73,52 @@ const Index = (props) => {
     setChartExample1Data("data" + index);
   };
 
-  const [add, setAdd] = useState(false)
+  const [add, setAdd] = useState(false);
 
   return (
     <>
-      <Header />
+      <AdminPagesHeader />
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row className="mt-5">
           <Col className="mb-5 mb-xl-0" xl="12">
-            {
-                add ? 
-                <>
-                    <Card className="shadow" style={{ position : "absolute", zIndex : "10000" }}>
-                        <CardHeader>
-                            <h1>Add A Hospital</h1>
-                        </CardHeader>
-                        <CardBody>
-                            <Forms/>
-                        </CardBody>
-                    </Card>
-                </> :
-                <>
-                    
-                </>
-            }
-            
+            {add ? (
+              <>
+                <Card
+                  className="shadow"
+                  style={{
+                    position: "absolute",
+                    zIndex: "1000",
+                    width: "85%",
+                    marginLeft: "5%",
+                  }}
+                >
+                  <CardHeader>
+                    <Row className="align-items-center">
+                      <div className="col">
+                        <h2 className="mb-0">Add A Hospital</h2>
+                      </div>
+                      <div className="col text-right">
+                        <Button
+                          color="primary"
+                          href="#pablo1"
+                          onClick={() => setAdd(false)}
+                          size="lg"
+                        >
+                          X
+                        </Button>
+                      </div>
+                    </Row>
+                  </CardHeader>
+                  <CardBody>
+                    <Forms />
+                  </CardBody>
+                </Card>
+              </>
+            ) : (
+              <></>
+            )}
+
             <Card className="shadow">
               <CardHeader className="border-0">
                 <Row className="align-items-center">
@@ -96,169 +126,106 @@ const Index = (props) => {
                     <h2 className="mb-0">Hospitals</h2>
                   </div>
                   <div className="col text-right">
-                        <Button
-                        color="primary"
-                        href="#pablo1"
-                        onClick={() => setAdd(!add)}
-                        size="sm"
-                        >
-                        Add Hospital
-                        </Button>
+                    <Button
+                      color="primary"
+                      href="#pablo1"
+                      onClick={() => setAdd(true)}
+                      size="lg"
+                    >
+                      Add Hospital
+                    </Button>
                   </div>
                 </Row>
               </CardHeader>
-              <Table className="align-items-center table-flush" responsive >
+              <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Hospital</th>
-                    <th scope="col">Matricle</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Hosp. Name</th>
+                    <th scope="col">Reg Number</th>
+                    <th scope="col">Quarter</th>
+                    <th scope="col" className="justify-content-center">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">/argon/</th>
-                    <td>4,569</td>
-                    <td>340</td>
+                    <td scope="row">1</td>
+                    <td>CMA Nkomo</td>
+                    <td>12dda32</td>
                     <td>
-                      <i className="fas fa-arrow-up text-success mr-3" /> 46,53%
+                      Nkomo
                     </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/index.html</th>
-                    <td>3,985</td>
-                    <td>319</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-warning mr-3" />{" "}
-                      46,53%
-                    </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
+                    <td className="text-right">
+                      <UncontrolledDropdown>
+                        <DropdownToggle
+                          className="btn-icon-only text-light"
+                          href="#pablo"
+                          role="button"
+                          size="sm"
+                          color=""
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <i className="fas fa-ellipsis-v" />
+                        </DropdownToggle>
+                        <DropdownMenu className="dropdown-menu-arrow" right>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}>
+                            <ButtonDropdown>
+                              View
+                            </ButtonDropdown>
+                            
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()} >
+                            <ButtonDropdown>
+                              Edit
+                            </ButtonDropdown>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row">/argon/charts.html</th>
-                    <td>3,513</td>
-                    <td>294</td>
+                    <td scope="row">1</td>
+                    <td>CMA Nkomo</td>
+                    <td>12dda32</td>
                     <td>
-                      <i className="fas fa-arrow-down text-warning mr-3" />{" "}
-                      36,49%
+                      Nkomo
                     </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/tables.html</th>
-                    <td>2,050</td>
-                    <td>147</td>
-                    <td>
-                      <i className="fas fa-arrow-up text-success mr-3" /> 50,87%
-                    </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/profile.html</th>
-                    <td>1,795</td>
-                    <td>190</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-danger mr-3" />{" "}
-                      46,53%
-                    </td>
-                    <td>
-                        <div className="col text-right">
-                                <Button
-                                color="primary"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                View
-                                </Button>
-                                <Button
-                                color="success"
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                                size="sm"
-                                >
-                                Edit
-                                </Button>
-                        </div>
+                    <td className="text-right">
+                      <UncontrolledDropdown>
+                        <DropdownToggle
+                          className="btn-icon-only text-light"
+                          href="#pablo"
+                          role="button"
+                          size="sm"
+                          color=""
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <i className="fas fa-ellipsis-v" />
+                        </DropdownToggle>
+                        <DropdownMenu className="dropdown-menu-arrow" right>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}>
+                            <ButtonDropdown>
+                              View
+                            </ButtonDropdown>
+                            
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()} >
+                            <ButtonDropdown>
+                              Edit
+                            </ButtonDropdown>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
                     </td>
                   </tr>
                 </tbody>
@@ -270,6 +237,5 @@ const Index = (props) => {
     </>
   );
 };
-
 
 export default Index;
