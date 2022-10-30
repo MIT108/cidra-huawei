@@ -51,7 +51,7 @@ const Login = () => {
   }
 
   const onLogin = () => {
-    history.push("/admin");
+    history.push("/admin/SuperAdmin");
   }
 
 
