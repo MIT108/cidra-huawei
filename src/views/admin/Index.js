@@ -43,19 +43,15 @@ import {
   chartOptions,
   parseOptions,
   chartExample1,
-admin
+admin,
   chartExample2
 } 
 from "variables/charts.js";
 
 import MinAdminHeader from "components/Headers/MinAdminHeader.js";
-=======
-  chartExample2,
-} from "variables/charts.js";
 
 import Header from "components/Headers/Header.js";
 import Loader from "components/Loader/Loader";
- develop
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
