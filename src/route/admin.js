@@ -19,6 +19,7 @@ import Index from "views/admin/Index.js";
 import Doctors from "views/admin/Doctors.js";
 import Hospitals from "views/admin/Hospitals.js";
 import Pharmacies from "views/admin/Pharmacies.js";
+import ShowHospital from "views/admin/ShowHospital";
 
 var admin = [{
     path: "/Admin",
@@ -53,6 +54,13 @@ var admin = [{
     name: "Consult",
     icon: "ni ni-ambulance text-danger",
     component: Index,
+    layout: "/admin"
+},
+{
+    path: "/Admin-ShowHospital",
+    name: "Consult",
+    icon: "ni ni-ambulance text-danger",
+    component: ShowHospital,
     layout: "/admin"
 },
 ];
