@@ -15,10 +15,23 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import super_admin from './super_admin'
-import admin from './admin'
-import auth from './auth'
+import Register from "views/authentication/Register.js";
+import Login from "views/authentication/Login.js";
 
-var index = []
-index = index.concat(super_admin, admin, auth)
-export default index;
+var auth = [
+    {
+        path: "/login",
+        name: "Login",
+        icon: "ni ni-key-25 text-info",
+        component: Login,
+        layout: "/auth"
+    },
+    {
+        path: "/register",
+        name: "Register",
+        icon: "ni ni-circle-08 text-pink",
+        component: Register,
+        layout: "/auth"
+    }
+];
+export default auth;
