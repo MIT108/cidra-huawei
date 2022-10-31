@@ -43,7 +43,7 @@ import {
   Progress,
   Table,
   UncontrolledTooltip,
-  ButtonDropdown
+  ButtonDropdown,
 } from "reactstrap";
 
 // core components
@@ -57,7 +57,7 @@ import {
 import AdminPagesHeader from "components/Headers/AdminPagesHeader.js";
 import Forms from "components/Forms";
 import Hospitals from "./HospitalData.js";
-
+import ShowHospital from "./ShowHospital.js";
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
@@ -74,6 +74,8 @@ const Index = (props) => {
   };
 
   const [add, setAdd] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [edit, editHospital] = useState(false);
 
   return (
     <>
@@ -104,14 +106,85 @@ const Index = (props) => {
                           href="#pablo1"
                           onClick={() => setAdd(false)}
                           size="lg"
-                        >
-                          X
-                        </Button>
+                          className="ni ni-fat-remove"
+                        ></Button>
                       </div>
                     </Row>
                   </CardHeader>
                   <CardBody>
                     <Forms />
+                  </CardBody>
+                </Card>
+              </>
+            ) : (
+              <></>
+            )}
+            
+            {edit ? (
+              <>
+                <Card
+                  className="shadow"
+                  style={{
+                    position: "absolute",
+                    zIndex: "1000",
+                    width: "85%",
+                    marginLeft: "5%",
+                  }}
+                >
+                  <CardHeader>
+                    <Row className="align-items-center">
+                      <div className="col">
+                        <h2 className="mb-0">Editting A Hospital</h2>
+                      </div>
+                      <div className="col text-right">
+                        <Button
+                          color="primary"
+                          href="#pablo1"
+                          onClick={() => editHospital(false)}
+                          size="lg"
+                          className="ni ni-fat-remove"
+                        ></Button>
+                      </div>
+                    </Row>
+                  </CardHeader>
+                  <CardBody>
+                    <Forms />
+                  </CardBody>
+                </Card>
+              </>
+            ) : (
+              <></>
+            )}
+
+            {toggle ? (
+              <>
+                <Card
+                  className="shadow"
+                  style={{
+                    position: "absolute",
+                    zIndex: "1000",
+                    width: "85%",
+                    marginLeft: "5%",
+                  }}
+                >
+                  <CardHeader>
+                    <Row className="align-items-center">
+                      <div className="col">
+                        <h2 className="mb-0"></h2>
+                      </div>
+                      <div className="col text-right">
+                        <Button
+                          color="primary"
+                          href="#pablo1"
+                          onClick={() => setToggle(false)}
+                          size="lg"
+                          className="ni ni-fat-remove"
+                        ></Button>
+                      </div>
+                    </Row>
+                  </CardHeader>
+                  <CardBody className="m-auto">
+                    <ShowHospital />
                   </CardBody>
                 </Card>
               </>
@@ -154,9 +227,7 @@ const Index = (props) => {
                     <td scope="row">1</td>
                     <td>CMA Nkomo</td>
                     <td>12dda32</td>
-                    <td>
-                      Nkomo
-                    </td>
+                    <td>Nkomo</td>
                     <td className="text-right">
                       <UncontrolledDropdown>
                         <DropdownToggle
@@ -172,18 +243,15 @@ const Index = (props) => {
                         <DropdownMenu className="dropdown-menu-arrow" right>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()}>
-                            <ButtonDropdown>
-                              View
-                            </ButtonDropdown>
-                            
+                            onClick={() => setToggle(true)}
+                          >
+                            <ButtonDropdown>View</ButtonDropdown>
                           </DropdownItem>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Edit
-                            </ButtonDropdown>
+                            onClick={() => editHospital(true)}
+                          >
+                            <ButtonDropdown>Edit</ButtonDropdown>
                           </DropdownItem>
                         </DropdownMenu>
                       </UncontrolledDropdown>
@@ -193,9 +261,7 @@ const Index = (props) => {
                     <td scope="row">1</td>
                     <td>CMA Nkomo</td>
                     <td>12dda32</td>
-                    <td>
-                      Nkomo
-                    </td>
+                    <td>Nkomo</td>
                     <td className="text-right">
                       <UncontrolledDropdown>
                         <DropdownToggle
@@ -211,18 +277,15 @@ const Index = (props) => {
                         <DropdownMenu className="dropdown-menu-arrow" right>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()}>
-                            <ButtonDropdown>
-                              View
-                            </ButtonDropdown>
-                            
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>View</ButtonDropdown>
                           </DropdownItem>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Edit
-                            </ButtonDropdown>
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>Edit</ButtonDropdown>
                           </DropdownItem>
                         </DropdownMenu>
                       </UncontrolledDropdown>
