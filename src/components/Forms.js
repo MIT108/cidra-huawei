@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+
+import React, {useState, useEffect} from 'react'
+import { View, Text } from 'react'
+
 
 // reactstrap components
 import {
@@ -11,157 +14,116 @@ import {
   Col,
   Button,
 } from "reactstrap";
-import { FormErrors } from "formValidation/FormError";
+ 
+const Forms = () => {
 
-class Forms extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      registrationNum: "",
-      address: "",
-      kof: "",
-      formErrors: {
+  const initialValues = {Hname: "",
         email: "",
-        name: "",
         registrationNum: "",
         address: "",
-        kof: "",
-      },
-      emailValid: false,
-      nameValid: false,
-      addressValid: false,
-      formValid: false,
-    };
-  }
+        kof: ""};
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
-  handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    this.setState({ [name]: value }, () => {
-      this.validateField(name, value);
-    });
+  const handleChange = (e) =>{
+    const { name, value } = e.target;
+    setFormValues({...formValues, [name]:value});
+    console.log(formValues);
   };
 
-  validateField(fieldName, value) {
-    let fieldValidationErrors = this.state.formErrors;
-    let emailValid = this.state.emailValid;
-    let nameValid = this.state.nameValid;
-    let addressValid = this.state.addressValid;
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  }
 
-    switch (fieldName) {
-      case "email":
-        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        fieldValidationErrors.email = emailValid ? "" : " email must contain @ and .";
-        break;
-      case "name":
-        nameValid = value.length >= 50;
-        fieldValidationErrors.name = nameValid
-          ? "Name cannot be more than 50 characters"
-          : "";
-        break;
-        case "address":
-          addressValid = value.length === 0;
-          fieldValidationErrors.address = addressValid
-            ? "Name cannot be more than 50 characters"
-            : "field address must be filled";
-      default:
-        break;
+  useEffect(() =>{
+      console.log(formErrors);
+      if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
     }
-    this.setState(
-      {
-        formErrors: fieldValidationErrors,
-        emailValid: emailValid,
-        nameValid: nameValid,
-      },
-      this.validateForm
-    );
-  }
+  });
 
-  validateForm() {
-    this.setState({
-      formValid: this.state.emailValid && this.state.nameValid,
-    });
+  const validate = (values) =>{
+    const errors = {};
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
+    if (!values.Hname) {
+      errors.Hname = "Hospital Name is Required"
+    }
+    if (!values.email) {
+      errors.email = "email is Required"
+    }else if(!regex.test(values.email)){
+      errors.email = "email must contain @ to be a valid email"
+    }
+    if (!values.registrationNum) {
+      errors.registrationNum = "Registration Number is Required"
+    }
+    if (!values.address) {
+      errors.address = "address is Required"
+    }
+    if (!values.kof) {
+      errors.kof = "Originl start date is Required"
+    }
+    return errors
   }
-
-  errorClass(error) {
-    return(error.length === 0 ? '' : 'has-error');
- }
-  render() {
-    return (
-      <>
-        <Form>
-          <Row>
-            <div className="panel panel-default">
-              <FormErrors formErrors={this.state.formErrors} />
-            </div>
-            <Col md="6">
-              <FormGroup className={`form-group ${this.errorClass(this.state.formErrors.name)}`}>
-                <Input
+  return (
+  
+       <>
+        <Form onSubmit={handleSubmit}>
+           <Row>
+             <Col md="6">
+               <FormGroup>
+                 <Input
                   id="exampleFormControlInput1"
                   placeholder="Name"
-                  type="name"
-                  name="name"
-                  value={this.state.name}
-                  onChange={(e) => {
-                    this.handleChange(e);
-                  }}
+                  type="text"
+                  name="Hname"
+                  value={formValues.Hname}
+                  onChange={handleChange}
                 />
               </FormGroup>
+              <p className='text-red'>{formErrors.Hname}</p>
             </Col>
             <Col md="6">
-              <FormGroup className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
+              <FormGroup >
                 <Input
                   id="exampleFormControlInput1"
                   placeholder="Email"
                   type="email"
                   name="email"
-                  value={this.state.email}
-                  onChange={(e) => {
-                    this.handleChange(e);
-                  }}
+                  value={formValues.email}
+                  onChange={handleChange}
                 />
               </FormGroup>
+              <p className='text-red'>{formErrors.email}</p>
             </Col>
             <Col md="6">
               <FormGroup>
                 <Input
                   id="exampleFormControlInput1"
                   placeholder="Registration Number"
-                  type="name"
+                  type="text"
                   name="registrationNum"
-                  value={this.state.registrationNum}
-                  onChange={(e) => {
-                    this.handleChange(e);
-                  }}
+                  value={formValues.registrationNum}
+                  onChange={handleChange}
                 />
               </FormGroup>
+              <p className='text-red'>{formErrors.registrationNum}</p>
             </Col>
             <Col md="6">
               <FormGroup>
                 <Input
                   id="exampleFormControlInput1"
                   placeholder="address"
-                  type="name"
+                  type="text"
                   name="address"
-                  value={this.state.address}
-                  onChange={(e) => {
-                    this.handleChange(e);
-                  }}
+                  value={formValues.address}
+                  onChange={handleChange}
                 />
               </FormGroup>
+              <p className='text-red'>{formErrors.address}</p>
             </Col>
-            {/* <Col md="6">
-              <FormGroup>
-                <Input
-                  id="exampleFormControlInput1"
-                  placeholder="Logo"
-                  type="file"
-                  value={this.state.logo}
-                />
-              </FormGroup>
-            </Col> */}
             <Col md="6">
               <FormGroup>
                 <Input
@@ -169,18 +131,16 @@ class Forms extends React.Component {
                   placeholder="Original Creation Date"
                   type="date"
                   name="kof"
-                  value={this.state.kof}
-                  onChange={(e) => {
-                    this.validateForm(e);
-                  }}
+                  value={formValues.kof}
+                  onChange={handleChange}
                 />
               </FormGroup>
+              <p className='text-red'>{formErrors.kof}</p>
             </Col>
             <Col md="3" className="">
               <Button color="primary" 
-                  onChange={(e) => {
-                    this.handleChange(e);
-                  }}>
+                ml="5"
+                 >
                     {" "}
                 Save
               </Button>
@@ -188,8 +148,7 @@ class Forms extends React.Component {
           </Row>
         </Form>
       </>
-    );
-  }
+    
+  )
 }
-
 export default Forms;
