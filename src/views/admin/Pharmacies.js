@@ -43,7 +43,7 @@ import {
   Progress,
   Table,
   UncontrolledTooltip,
-  ButtonDropdown
+  ButtonDropdown,
 } from "reactstrap";
 
 // core components
@@ -56,8 +56,8 @@ import {
 
 import AdminPagesHeader from "components/Headers/AdminPagesHeader.js";
 import Forms from "components/Forms";
+import ShowPharmacie from "./ShowPharmacie";
 import Hospitals from "./HospitalData.js";
-
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
@@ -74,6 +74,7 @@ const Index = (props) => {
   };
 
   const [add, setAdd] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   return (
     <>
@@ -119,6 +120,41 @@ const Index = (props) => {
               <></>
             )}
 
+            {toggle ? (
+              <>
+                <Card
+                  className="shadow"
+                  style={{
+                    position: "absolute",
+                    zIndex: "1000",
+                    width: "85%",
+                    marginLeft: "5%",
+                  }}
+                >
+                  <CardHeader>
+                    <Row className="align-items-center">
+                      <div className="col">
+                        <h2 className="mb-0"></h2>
+                      </div>
+                      <div className="col text-right">
+                        <Button
+                          color="primary"
+                          href="#pablo1"
+                          onClick={() => setToggle(false)}
+                          size="lg"
+                          className="ni ni-fat-remove"
+                        ></Button>
+                      </div>
+                    </Row>
+                  </CardHeader>
+                  <CardBody className="m-auto">
+                    <ShowPharmacie />
+                  </CardBody>
+                </Card>
+              </>
+            ) : (
+              <></>
+            )}
             <Card className="shadow">
               <CardHeader className="border-0">
                 <Row className="align-items-center">
@@ -132,7 +168,7 @@ const Index = (props) => {
                       onClick={() => setAdd(true)}
                       size="lg"
                     >
-                      Add Hospital
+                      Add a Pharmacie
                     </Button>
                   </div>
                 </Row>
@@ -141,7 +177,7 @@ const Index = (props) => {
                 <thead className="thead-light">
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Hosp. Name</th>
+                    <th scope="col">Phar. Name</th>
                     <th scope="col">Reg Number</th>
                     <th scope="col">Quarter</th>
                     <th scope="col" className="justify-content-center">
@@ -154,9 +190,7 @@ const Index = (props) => {
                     <td scope="row">1</td>
                     <td>CMA Nkomo</td>
                     <td>12dda32</td>
-                    <td>
-                      Nkomo
-                    </td>
+                    <td>Nkomo</td>
                     <td className="text-right">
                       <UncontrolledDropdown>
                         <DropdownToggle
@@ -172,18 +206,15 @@ const Index = (props) => {
                         <DropdownMenu className="dropdown-menu-arrow" right>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()}>
-                            <ButtonDropdown>
-                              View
-                            </ButtonDropdown>
-                            
+                            onClick={() => setToggle(true)}
+                          >
+                            <ButtonDropdown>View</ButtonDropdown>
                           </DropdownItem>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Edit
-                            </ButtonDropdown>
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>Edit</ButtonDropdown>
                           </DropdownItem>
                         </DropdownMenu>
                       </UncontrolledDropdown>
@@ -193,9 +224,7 @@ const Index = (props) => {
                     <td scope="row">1</td>
                     <td>CMA Nkomo</td>
                     <td>12dda32</td>
-                    <td>
-                      Nkomo
-                    </td>
+                    <td>Nkomo</td>
                     <td className="text-right">
                       <UncontrolledDropdown>
                         <DropdownToggle
@@ -211,18 +240,15 @@ const Index = (props) => {
                         <DropdownMenu className="dropdown-menu-arrow" right>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()}>
-                            <ButtonDropdown>
-                              View
-                            </ButtonDropdown>
-                            
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>View</ButtonDropdown>
                           </DropdownItem>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Edit
-                            </ButtonDropdown>
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>Edit</ButtonDropdown>
                           </DropdownItem>
                         </DropdownMenu>
                       </UncontrolledDropdown>
