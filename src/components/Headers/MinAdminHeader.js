@@ -26,7 +26,7 @@ const Header = () => {
         <Container fluid>
           <div className="header-body">
             {/* Card stats */}
-            {/* <Row>
+            <Row>
               <Col lg="6" xl="3">
                 <Card className="card-stats mb-4 mb-xl-0">
                   <CardBody>
@@ -34,23 +34,22 @@ const Header = () => {
                       <div className="col">
                         <CardTitle
                           tag="h5"
-                          className="text-uppercase text-muted mb-0"
+                          className="h3-uppercase mb-0"
                         >
-                          Traffic
+                          HOSPITALS
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">
-                          350,897
+                        <span className="h2 text-muted font-weight-bold mb-0">
+                          150
                         </span>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-danger text-white rounded-circle shadow">
-                          <i className="fas fa-chart-bar" />
+                        <div className="icon icon-shape bg-primary text-white rounded-circle shadow">
+                          <i className="ni ni-building" />
                         </div>
                       </Col>
                     </Row>
                     <p className="mt-3 mb-0 text-muted text-sm">
                       <span className="text-success mr-2">
-                        <i className="fa fa-arrow-up" /> 3.48%
                       </span>{" "}
                       <span className="text-nowrap">Since last month</span>
                     </p>
@@ -64,21 +63,20 @@ const Header = () => {
                       <div className="col">
                         <CardTitle
                           tag="h5"
-                          className="text-uppercase text-muted mb-0"
+                          className="text-uppercase mb-0"
                         >
-                          New users
+                          PHARMACIES
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">2,356</span>
+                        <span className="h2 font-weight-bold text-muted mb-0">85</span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
-                          <i className="fas fa-chart-pie" />
+                          <i className="ni ni-building" />
                         </div>
                       </Col>
                     </Row>
                     <p className="mt-3 mb-0 text-muted text-sm">
                       <span className="text-danger mr-2">
-                        <i className="fas fa-arrow-down" /> 3.48%
                       </span>{" "}
                       <span className="text-nowrap">Since last week</span>
                     </p>
@@ -92,11 +90,11 @@ const Header = () => {
                       <div className="col">
                         <CardTitle
                           tag="h5"
-                          className="text-uppercase text-muted mb-0"
+                          className="text-uppercase mb-0"
                         >
-                          Sales
+                          DOCTORS   
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">924</span>
+                        <span className="h2 font-weight-bold text-muted mb-0">240</span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -106,7 +104,6 @@ const Header = () => {
                     </Row>
                     <p className="mt-3 mb-0 text-muted text-sm">
                       <span className="text-warning mr-2">
-                        <i className="fas fa-arrow-down" /> 1.10%
                       </span>{" "}
                       <span className="text-nowrap">Since yesterday</span>
                     </p>
@@ -141,7 +138,7 @@ const Header = () => {
                   </CardBody>
                 </Card>
               </Col>
-            </Row> */}
+            </Row>
           </div>
         </Container>
       </div>

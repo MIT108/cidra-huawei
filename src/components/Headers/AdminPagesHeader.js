@@ -15,10 +15,23 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import super_admin from './super_admin'
-import admin from './admin'
-import auth from './auth'
 
-var index = []
-index = index.concat(super_admin, admin, auth)
-export default index;
+// reactstrap components
+import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
+
+const Header = () => {
+  return (
+    <>
+      <div className="header bg-gradient-info pb-8 pt-8 pt-md-8">
+        <Container fluid>
+          <div className="header-body">
+            {/* Card stats */}
+          
+          </div>
+        </Container>
+      </div>
+    </>
+  );
+};
+
+export default Header;

@@ -35,7 +35,7 @@ import {
   Table,
   Container,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 
 // core components
@@ -43,10 +43,15 @@ import {
   chartOptions,
   parseOptions,
   chartExample1,
+admin,
   chartExample2
-} from "variables/charts.js";
+} 
+from "variables/charts.js";
+
+import MinAdminHeader from "components/Headers/MinAdminHeader.js";
 
 import Header from "components/Headers/Header.js";
+import Loader from "components/Loader/Loader";
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
@@ -63,7 +68,7 @@ const Index = (props) => {
   };
   return (
     <>
-      <Header />
+      <MinAdminHeader />
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
@@ -82,7 +87,7 @@ const Index = (props) => {
                       <NavItem>
                         <NavLink
                           className={classnames("py-2 px-3", {
-                            active: activeNav === 1
+                            active: activeNav === 1,
                           })}
                           href="#pablo"
                           onClick={(e) => toggleNavs(e, 1)}
@@ -94,7 +99,7 @@ const Index = (props) => {
                       <NavItem>
                         <NavLink
                           className={classnames("py-2 px-3", {
-                            active: activeNav === 2
+                            active: activeNav === 2,
                           })}
                           data-toggle="tab"
                           href="#pablo"
