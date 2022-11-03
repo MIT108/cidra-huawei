@@ -34,11 +34,14 @@ import {
 import { useState } from "react";
 
 import {
-  NotificationManager
-} from 'react-notifications';
-import {
   useHistory
 } from "react-router-dom";
+import {
+  loginAction
+} from 'services/api/auth/actions'
+import {
+  NotificationManager
+} from 'react-notifications';
 
 const Login = () => {
   const history = useHistory();
@@ -51,7 +54,24 @@ const Login = () => {
   }
 
   const onLogin = () => {
-    history.push("/admin/SuperAdmin");
+    const data = {
+      "email": email,
+      "password": password
+    }
+    loginAction(data).then((response) => {
+      history.push("/admin/SuperAdmin");
+      NotificationManager.success(response.data.message);
+    }).catch((error) => {
+      console.log("error", error)
+      if (error.response) {
+        if (error.response.status == 422) {
+          NotificationManager.error(error.response.data.message);
+        }
+      } else {
+        NotificationManager.warning("Server Error");
+      }
+    })
+    
   }
 
 
