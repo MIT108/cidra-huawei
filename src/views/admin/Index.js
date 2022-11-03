@@ -43,8 +43,12 @@ import {
   chartOptions,
   parseOptions,
   chartExample1,
-  chartExample2,
-} from "variables/charts.js";
+admin,
+  chartExample2
+} 
+from "variables/charts.js";
+
+import MinAdminHeader from "components/Headers/MinAdminHeader.js";
 
 import Header from "components/Headers/Header.js";
 import Loader from "components/Loader/Loader";
@@ -64,7 +68,7 @@ const Index = (props) => {
   };
   return (
     <>
-      <Header />
+      <MinAdminHeader />
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
