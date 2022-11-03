@@ -30,6 +30,28 @@ export const getAccessToken = () => {
     }
 }
 
+export const authUser = () => {
+    let data = sessionStorage.getItem("cidraInformation");
+    if (data) {
+        data = CryptoJS.AES.decrypt(data, 'cidra');
+        data = data.toString(CryptoJS.enc.Utf8);
+        return JSON.parse(data).user
+    } else {
+        return null
+    }
+}
+
+export const authRole = () => {
+    let data = sessionStorage.getItem("cidraInformation");
+    if (data) {
+        data = CryptoJS.AES.decrypt(data, 'cidra');
+        data = data.toString(CryptoJS.enc.Utf8);
+        return JSON.parse(data).user.role
+    } else {
+        return null
+    }
+}
+
 export const getRefreshToken = () => {
     let data = sessionStorage.getItem("cidraInformation");
     if (data) {

@@ -15,6 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 // reactstrap components
 import {
@@ -33,8 +34,32 @@ import {
   Container,
   Media
 } from "reactstrap";
+import {
+  logoutAction
+} from "services/api/auth/actions";
+import {
+  useHistory
+} from "react-router-dom";
+import {
+  authUser
+} from "services/sessionStorage";
+import {
+  NotificationManager
+} from 'react-notifications';
 
 const AdminNavbar = (props) => {
+  const history = useHistory();
+  
+  const [user, setUser] = useState(authUser())
+
+  const onLogout = () => {
+    logoutAction().then((response) => {
+      history.push("/auth");
+    }).catch((error) => {
+      NotificationManager.error("Unable to log out")
+    })
+  }
+
   return (
     <>
       <Navbar className="navbar-top navbar-dark" expand="md" id="navbar-main">
@@ -69,7 +94,7 @@ const AdminNavbar = (props) => {
                   </span>
                   <Media className="ml-2 d-none d-lg-block">
                     <span className="mb-0 text-sm font-weight-bold">
-                      Jessica Jones
+                      {user.name}
                     </span>
                   </Media>
                 </Media>
@@ -95,13 +120,9 @@ const AdminNavbar = (props) => {
                   <span>Support</span>
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+                <DropdownItem href="#pablo" onClick={() => onLogout()}>
                   <i className="ni ni-user-run" />
-                  <NavLink
-                    to="/"
-                    >
-                      Logout
-                  </NavLink>
+                    Logout
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

@@ -25,6 +25,7 @@ import AdminFooter from "components/Footers/AdminFooter.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 
 import routes from "route";
+import { NotificationContainer } from "react-notifications";
 
 const Admin = (props) => {
   const mainContent = React.useRef(null);
@@ -75,11 +76,14 @@ const Admin = (props) => {
           imgAlt: "..."
         }}
       />
+
       <div className="main-content" ref={mainContent}>
         <AdminNavbar
           {...props}
           brandText={getBrandText(props.location.pathname)}
         />
+        <NotificationContainer/>
+
         <Switch>
           {getRoutes(routes)}
           <Redirect from="*" to="/admin/index" />
