@@ -1,5 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, {
+    useEffect,
+    useState
+} from 'react'
+import {
+    NotificationManager
+} from 'react-notifications';
 import { Button, Col, Form, FormGroup, Input, Row } from 'reactstrap'
+import { addAdmin } from 'services/api/super_admin/admin';
 
 function Add() {
 
@@ -11,7 +18,22 @@ function Add() {
     }
 
     const onAdd = () => {
-        
+        var data = {
+            email: email,
+            name: name
+        }
+        addAdmin(data).then((response) => {
+            NotificationManager.success(response.data.message);
+            setEmail("")
+            setName("")
+        }).catch((error) => {
+            console.log(error)
+            if (error.response) {
+                NotificationManager.error(error.response.data.errors[0].msg);
+            } else {
+                NotificationManager.warning("Server Error");
+            }
+        })
     }
 
     useEffect(() => {

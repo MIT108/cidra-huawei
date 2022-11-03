@@ -1,4 +1,5 @@
 import axiosInstance from 'services/axios/axiosInterceptor'
+import { removeInformation } from 'services/sessionStorage';
 import { getAccessToken } from 'services/sessionStorage';
 import {setInformation} from 'services/sessionStorage'
 
@@ -21,5 +22,14 @@ export const checkLogin =  () => {
         return true;
     } else {
         return false;
+    }
+}
+
+export const logoutAction = () => {
+    try {
+        removeInformation("cidraInformation")
+        return true
+    } catch (error) {
+        return error
     }
 }
