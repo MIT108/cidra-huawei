@@ -42,11 +42,6 @@ import {
 import {
   NotificationManager
 } from 'react-notifications';
-import {
-  getInformation
-} from 'services/sessionStorage'
-import { getRefreshToken } from "services/sessionStorage";
-import { getAccessToken } from "services/sessionStorage";
 
 const Login = () => {
   const history = useHistory();
@@ -64,6 +59,7 @@ const Login = () => {
       "password": password
     }
     loginAction(data).then((response) => {
+      history.push("/admin/SuperAdmin");
       NotificationManager.success(response.data.message);
     }).catch((error) => {
       console.log("error", error)
