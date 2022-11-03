@@ -47,6 +47,7 @@ import {
 } from "variables/charts.js";
 
 import Header from "components/Headers/Header.js";
+import MapView from "components/map/MapView";
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
@@ -67,6 +68,7 @@ const Index = (props) => {
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
+          {/* <MapView /> */}
           <Col className="mb-5 mb-xl-0" xl="8">
             <Card className="bg-gradient-default shadow">
               <CardHeader className="bg-transparent">
