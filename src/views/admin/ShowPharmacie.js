@@ -1,4 +1,6 @@
 
+import { useState } from "react";
+import { Redirect } from "react-router-dom";
 import React from 'react'
 import {
     Button,
@@ -15,9 +17,22 @@ import {
   import AdminPagesHeader from "components/Headers/AdminPagesHeader.js";
 
 export default function ShowHospital() {
+  const [goToDoctors, setgoToDoctors] = useState(false);
+
+  if (goToDoctors) {
+    return <Redirect to="Admin-Doctors"/>
+  }
     return (
         <>
-        <Card style={{ width: "18rem" }}>
+        <AdminPagesHeader/>
+        <Card style={{ width: "55rem", margin:"auto", marginTop:"-5rem" }}>
+        <CardHeader>
+          <Button
+            className="ni ni-bold-left"
+            style={{ marginLeft: "85%", color: "blue" }}
+            onClick={() => {setgoToDoctors(true)}}
+          ></Button>
+        </CardHeader>
           <CardImg
             alt="..."
             top
