@@ -53,6 +53,7 @@ import {
   chartExample1,
   chartExample2,
 } from "variables/charts.js";
+import {Redirect, Navigate} from "react-router-dom";
 
 import AdminPagesHeader from "components/Headers/AdminPagesHeader.js";
 import Forms from "components/Forms";
@@ -77,13 +78,18 @@ const Index = (props) => {
   const [toggle, setToggle] = useState(false);
   const [edit, editHospital] = useState(false);
 
+  if (toggle){
+    return <Redirect to="Admin-ShowHospital"/>
+  }
+
+
   return (
     <>
       <AdminPagesHeader />
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row className="mt-5">
-          <Col className="mb-5 mb-xl-0" xl="12">
+          <Col className="mb-5 mb-xl-0 m-auto" xl="10">
             {add ? (
               <>
                 <Card

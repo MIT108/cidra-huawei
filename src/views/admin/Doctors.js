@@ -40,7 +40,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   Col,
-  ButtonDropdown
+  ButtonDropdown,
 } from "reactstrap";
 
 // core components
@@ -48,8 +48,9 @@ import {
   chartOptions,
   parseOptions,
   chartExample1,
-  chartExample2
+  chartExample2,
 } from "variables/charts.js";
+import { Redirect } from "react-router-dom";
 
 import AdminPagesHeader from "components/Headers/AdminPagesHeader.js";
 import Header from "components/Headers/Header.js";
@@ -67,6 +68,12 @@ const Index = (props) => {
     setActiveNav(index);
     setChartExample1Data("data" + index);
   };
+
+  const [toggle, setToggle] = useState(false);
+
+  if (toggle) {
+    return <Redirect to="Admin-ShowDoctor" />;
+  }
   return (
     <>
       <AdminPagesHeader />
@@ -74,7 +81,7 @@ const Index = (props) => {
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row className="mt-5">
-          <Col className="mb-5 mb-xl-0" xl="12">
+          <Col className="mb-5 mb-xl-0 m-auto" xl="10">
             <Card className="shadow">
               <CardHeader className="border-0">
                 <Row className="align-items-center">
@@ -83,7 +90,7 @@ const Index = (props) => {
                   </div>
                 </Row>
               </CardHeader>
-              <Table className="align-items-center table-flush" responsive >
+              <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
                   <tr>
                     <th scope="col">No</th>
@@ -99,53 +106,7 @@ const Index = (props) => {
                     <td>Tanue Monette</td>
                     <td>CMA Nkomo</td>
                     <td>
-                      <i className=" text-success mr-3" />se17.23.2022
-                    </td>
-                    <td className="text-right">
-                      <UncontrolledDropdown>
-                        <DropdownToggle
-                          className="btn-icon-only text-light"
-                          href="#pablo"
-                          role="button"
-                          size="sm"
-                          color=""
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <i className="fas fa-ellipsis-v" />
-                        </DropdownToggle>
-                        <DropdownMenu className="dropdown-menu-arrow" right>
-                          <DropdownItem
-                            href="#pablo"
-                            onClick={(e) => e.preventDefault()}>
-                            <ButtonDropdown>
-                              View
-                            </ButtonDropdown>
-                            
-                          </DropdownItem>
-                          <DropdownItem
-                            href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Edit
-                            </ButtonDropdown>
-                          </DropdownItem>
-                          <DropdownItem
-                            href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Verify
-                            </ButtonDropdown>
-                          </DropdownItem>
-                        </DropdownMenu>
-                      </UncontrolledDropdown>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Mba Royce</td>
-                    <td>Regional Hospital</td>
-                    <td>
-                      <i className="text-warning mr-3" />{" "}
+                      <i className=" text-success mr-3" />
                       se17.23.2022
                     </td>
                     <td className="text-right">
@@ -163,25 +124,66 @@ const Index = (props) => {
                         <DropdownMenu className="dropdown-menu-arrow" right>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()}>
-                            <ButtonDropdown>
-                              View
-                            </ButtonDropdown>
-                            
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown className="ni ni-like-2 text-info">Approve</ButtonDropdown>
                           </DropdownItem>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Edit
-                            </ButtonDropdown>
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown className="ni ni-fat-delete text-danger">Decline</ButtonDropdown>
                           </DropdownItem>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Verify
-                            </ButtonDropdown>
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown className="ni ni-fat-remove text-warning">Suspend</ButtonDropdown>
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown className="ni ni-button-play text-success">Released</ButtonDropdown>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Mba Royce</td>
+                    <td>Regional Hospital</td>
+                    <td>
+                      <i className="text-warning mr-3" /> se17.23.2022
+                    </td>
+                    <td className="text-right">
+                      <UncontrolledDropdown>
+                        <DropdownToggle
+                          className="btn-icon-only text-light"
+                          href="#pablo"
+                          role="button"
+                          size="sm"
+                          color=""
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <i className="fas fa-ellipsis-v" />
+                        </DropdownToggle>
+                        <DropdownMenu className="dropdown-menu-arrow" right>
+                          <DropdownItem href="" onClick={() => setToggle(true)}>
+                            <ButtonDropdown className="ni ni-align-center">View</ButtonDropdown>
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>Edit</ButtonDropdown>
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>Verify</ButtonDropdown>
                           </DropdownItem>
                         </DropdownMenu>
                       </UncontrolledDropdown>
@@ -192,8 +194,7 @@ const Index = (props) => {
                     <td>MIT</td>
                     <td>Main de secour</td>
                     <td>
-                      <i className=" text-warning mr-3" />{" "}
-                      ms.20cm2022
+                      <i className=" text-warning mr-3" /> ms.20cm2022
                     </td>
                     <td className="text-right">
                       <UncontrolledDropdown>
@@ -210,25 +211,21 @@ const Index = (props) => {
                         <DropdownMenu className="dropdown-menu-arrow" right>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()}>
-                            <ButtonDropdown>
-                              View
-                            </ButtonDropdown>
-                            
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>View</ButtonDropdown>
                           </DropdownItem>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()} >
-                            <ButtonDropdown>
-                              Edit
-                            </ButtonDropdown>
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>Edit</ButtonDropdown>
                           </DropdownItem>
                           <DropdownItem
                             href="#pablo"
-                            onClick={(e) => e.preventDefault()}>
-                            <ButtonDropdown>
-                              Verify
-                            </ButtonDropdown>
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <ButtonDropdown>Verify</ButtonDropdown>
                           </DropdownItem>
                         </DropdownMenu>
                       </UncontrolledDropdown>
@@ -243,6 +240,5 @@ const Index = (props) => {
     </>
   );
 };
-
 
 export default Index;
