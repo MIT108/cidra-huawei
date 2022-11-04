@@ -72,8 +72,6 @@ const Sidebar = (props) => {
   const createLinks = (routes) => {
     return routes.map((prop, key) => {
 
-      console.log(prop.name)
-
       if (prop.show) {
         return (
           <NavItem key={key}>

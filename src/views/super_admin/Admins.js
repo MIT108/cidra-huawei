@@ -58,8 +58,6 @@ import Add from "components/SuperAdmin/Admins/Add";
 import Statistic from "components/SuperAdmin/Admins/Statistic";
 
 const Index = (props) => {
-  const [activeNav, setActiveNav] = useState(1);
-  const [chartExample1Data, setChartExample1Data] = useState("data1");
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
@@ -73,10 +71,11 @@ const Index = (props) => {
          setState({
              [state]: index
          });
-     };
+  };
+  
   return (
     <>
-      <Header />
+      <Header  />
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>

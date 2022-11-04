@@ -1,19 +1,20 @@
 import axiosInstance from 'services/axios/axiosInterceptor'
 
-export const listAdminAction = (data) => {
+export const listAdminAction = async (pages) => {
     try {
-        let response = axiosInstance.post('', data);
-
-    } catch (error) {
-
+        let response = await axiosInstance.get(`/mini-admin?page=${pages}`);
+        return response
+    } catch (error) {   
+        throw error
     }
 }
 
-export const addAdmin = (data) => {
+export const addAdmin = async (data) => {
     try {
-        let response = axiosInstance.post('/mini-admin/register', data);
+        let response = await axiosInstance.post('/mini-admin/register', data);
         return response
     } catch (error) {
         throw error;
     }
 }
+
