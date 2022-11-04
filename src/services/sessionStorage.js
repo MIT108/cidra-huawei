@@ -30,8 +30,8 @@ export const getAccessToken = () => {
     }
 }
 
-export const authUser = () => {
-    let data = sessionStorage.getItem("cidraInformation");
+export const authUser = async () => {
+    let data = await sessionStorage.getItem("cidraInformation");
     if (data) {
         data = CryptoJS.AES.decrypt(data, 'cidra');
         data = data.toString(CryptoJS.enc.Utf8);
