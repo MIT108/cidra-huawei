@@ -56,10 +56,8 @@ import {
 import { Redirect, Navigate } from "react-router-dom";
 
 import AdminPagesHeader from "components/Headers/AdminPagesHeader.js";
-import Forms from "components/Forms";
-import ShowPharmacie from "./ShowPharmacie";
-import Hospitals from "./HospitalData.js";
-
+import ShowPharmacie from "../../components/MinAdmin/Pharmacies/ShowPharmacie";
+import Forms from "components/MinAdmin/Hospitals/Forms";
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");

@@ -17,11 +17,11 @@
 */
 import Index from "views/admin/Index.js";
 import Doctors from "views/admin/Doctors.js";
-import Hospitals from "views/admin/Hospitals.js";
+import Hospitals from "views/admin/Hospitals";
 import Pharmacies from "views/admin/Pharmacies.js";
-import ShowHospital from "views/admin/ShowHospital";
-import ShowPharmacie from "views/admin/ShowPharmacie";
-import ShowDoctor from "views/admin/ShowDoctor";
+import ShowHospital from "components/MinAdmin/Hospitals/ShowHospital";
+import ShowPharmacie from "components/MinAdmin/Pharmacies/ShowPharmacie";
+import ShowDoctor from "components/MinAdmin/Doctors/ShowDoctor";
 
 var admin = [{
     path: "/Admin",
