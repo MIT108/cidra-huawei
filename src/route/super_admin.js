@@ -17,48 +17,61 @@
 */
 import Index from "views/super_admin/Index.js";
 import Admins from "views/super_admin/Admins.js";
-// import Profile from "views/examples/Profile.js";
+import Profile from "views/Profile.js";
 // import Maps from "views/examples/Maps.js";
 // import Register from "views/authentication/Register.js";
 // import Login from "views/authentication/Login.js";
-// import Tables from "views/examples/Tables.js";
+import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
+import History from "views/super_admin/History";
 
 var super_admin = [{
         path: "/SuperAdmin",
         name: "Super Admin Dashboard",
         icon: "ni ni-tv-2 text-primary",
         component: Index,
-        layout: "/admin"
+        layout: "/admin",
+            show: true,
     },
     {
         path: "/icons",
         name: "Icons",
         icon: "ni ni-planet text-blue",
         component: Icons,
-        layout: "/admin"
+        layout: "/admin",
+        show: true,
     },
-    // {
-    //     path: "/maps",
-    //     name: "Maps",
-    //     icon: "ni ni-pin-3 text-orange",
-    //     component: Maps,
-    //     layout: "/admin"
-    // },
+    {
+        path: "/user-profile",
+        name: "Profile",
+        icon: "ni ni-single-02 text-orange",
+        component: Profile,
+        layout: "/admin",
+        show: true,
+    },
     {
         path: "/List-Admin",
         name: "Admins",
         icon: "ni ni-single-02 text-yellow",
         component: Admins,
-        layout: "/admin"
+        layout: "/admin",
+            show: true,
+    }, {
+        path: "/History",
+        name: "History",
+        icon: "ni ni-bullet-list-67 text-red",
+        component: History,
+        layout: "/admin",
+        show: true,
     },
-    // {
-    //     path: "/tables",
-    //     name: "Tables",
-    //     icon: "ni ni-bullet-list-67 text-red",
-    //     component: Tables,
-    //     layout: "/admin"
-    // },
+    {
+        path: "/tables",
+        name: "Tables",
+        icon: "ni ni-bullet-list-67 text-red",
+        component: Tables,
+        layout: "/admin",
+        show: true,
+    },
     // {
     //     path: "/login",
     //     name: "Login",
