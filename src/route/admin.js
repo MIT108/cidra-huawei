@@ -28,56 +28,64 @@ var admin = [{
     name: "Admin Dashboard",
     icon: "ni ni-tv-2 text-primary",
     component: Index,
-    layout: "/admin"
+    layout: "/admin",
+    show: true,
 },
 {
     path: "/Admin-Hospitals",
     name: "Hospitals",
     icon: "ni ni-building text-primary",
     component: Hospitals,
-    layout: "/admin"
+    layout: "/admin",
+    show: true,
 },
 {
     path: "/Admin-Doctors",
     name: "Doctors",
     icon: "ni ni-single-02",
     component: Doctors,
-    layout: "/admin"
+    layout: "/admin",
+    show: true,
 },
 {
     path: "/Admin-Pharmacies",
     name: "Pharmacies",
     icon: "ni ni-building text-danger",
     component: Pharmacies,
-    layout: "/admin"
+    layout: "/admin",
+    show: true,
 },
 {
     path: "/Admin",
     name: "Consult",
     icon: "ni ni-ambulance text-danger",
     component: Index,
-    layout: "/admin"
+    layout: "/admin",
+    show: true,
 },
 {
     path: "/Admin-ShowHospital",
-    name: "",
+    name: "Hospitals",
     icon: "",
     component: ShowHospital,
-    layout: "/admin"
+    layout: "/admin",
+    show: false,
 },
 {
     path: "/Admin-ShowPharmacie",
-    name: "",
+    name: "Pharmacies",
     icon: "",
     component: ShowPharmacie,
-    layout: "/admin"
+    layout: "/admin",
+    show: false,
 },,
 {
     path: "/Admin-ShowDoctor",
-    name: "",
+    name: "Admin-ShowDoctor",
     icon: "",
     component: ShowDoctor,
-    layout: "/admin"
+    layout: "/admin",
+    show: false,
 },
 ];
 export default admin;
