@@ -30,14 +30,16 @@ var super_admin = [{
         name: "Super Admin Dashboard",
         icon: "ni ni-tv-2 text-primary",
         component: Index,
-        layout: "/admin"
+        layout: "/admin",
+            show: true,
     },
     {
         path: "/icons",
         name: "Icons",
         icon: "ni ni-planet text-blue",
         component: Icons,
-        layout: "/admin"
+        layout: "/admin",
+            show: true,
     },
     // {
     //     path: "/maps",
@@ -51,13 +53,15 @@ var super_admin = [{
         name: "Admins",
         icon: "ni ni-single-02 text-yellow",
         component: Admins,
-        layout: "/admin"
+        layout: "/admin",
+            show: true,
     }, {
         path: "/History",
         name: "History",
         icon: "ni ni-align-center",
         component: History,
-        layout: "/admin"
+        layout: "/admin",
+            show: true,
     },
     // {
     //     path: "/tables",
