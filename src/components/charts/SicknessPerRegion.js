@@ -47,8 +47,7 @@ function SicknessPerRegion() {
     };
 
     return (
-      
-        <Col xl="8">
+        <Col xl="7">
         <Card className="shadow">
             <CardHeader className="bg-transparent">
             <Row className="align-items-center">

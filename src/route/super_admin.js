@@ -23,6 +23,7 @@ import Admins from "views/super_admin/Admins.js";
 // import Login from "views/authentication/Login.js";
 // import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
+import History from "views/super_admin/History";
 
 var super_admin = [{
         path: "/SuperAdmin",
@@ -50,6 +51,12 @@ var super_admin = [{
         name: "Admins",
         icon: "ni ni-single-02 text-yellow",
         component: Admins,
+        layout: "/admin"
+    }, {
+        path: "/History",
+        name: "History",
+        icon: "ni ni-align-center",
+        component: History,
         layout: "/admin"
     },
     // {
