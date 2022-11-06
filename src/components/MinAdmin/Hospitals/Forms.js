@@ -24,6 +24,7 @@ const Forms = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const [email, setEmail] = useState("");
 
   const handleChange = (e) =>{
     const { name, value } = e.target;
@@ -67,7 +68,6 @@ const Forms = () => {
     return errors
   }
   return (
-  
        <>
         <Form onSubmit={handleSubmit}>
            <Row>
@@ -75,7 +75,7 @@ const Forms = () => {
                <FormGroup>
                  <Input
                   id="exampleFormControlInput1"
-                  placeholder="Name"
+                  placeholder="Hospital Name"
                   type="text"
                   name="Hname"
                   value={formValues.Hname}
@@ -122,19 +122,6 @@ const Forms = () => {
                 />
               </FormGroup>
               <p className='text-red'>{formErrors.address}</p>
-            </Col>
-            <Col md="6">
-              <FormGroup>
-                <Input
-                  id="exampleFormControlInput1"
-                  placeholder="Original Creation Date"
-                  type="date"
-                  name="kof"
-                  value={formValues.kof}
-                  onChange={handleChange}
-                />
-              </FormGroup>
-              <p className='text-red'>{formErrors.kof}</p>
             </Col>
             <Col md="3" className="">
               <Button color="primary" 
