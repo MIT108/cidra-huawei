@@ -25,8 +25,6 @@ import "assets/scss/argon-dashboard-react.scss";
 
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
-import ShowHospital from "views/admin/ShowHospital";
-import ShowPharmacie from "views/admin/ShowPharmacie";
 import ProtectedRoute from "components/ProtectedRoute";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -36,8 +34,6 @@ root.render(
     <Switch>
       <ProtectedRoute path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-      <Route path="/Admin-ShowHospital" element={<ShowHospital/>} />
-      <Route path="/Admin-ShowPharmarcie" element={<ShowPharmacie/>} />
       <Redirect  from="/" to="/auth/login" />
     </Switch>
   </BrowserRouter>
