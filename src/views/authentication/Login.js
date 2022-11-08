@@ -80,8 +80,12 @@ const Login = () => {
 
   return (
     <>
-      <Col lg="5" md="7">
-        <Card className="bg-secondary shadow border-0">
+      <Col lg="5" md="7" >
+        <Card className="bg-secondary pt-3 border-0"
+          style={{
+            'boxShadow': 'rgba(0, 0, 0, 0.4) 0 px 30 px 90 px'
+          }}
+        >
           {/* <CardHeader className="bg-transparent pb-5"> */}
             <div className="text-muted text-center mt-2 mb-3">
               <img src={Logo} alt="React Logo" style={{ 

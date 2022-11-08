@@ -53,6 +53,8 @@ import {
 } from "reactstrap";
 
 var ps;
+import LogoFull from '../../assets/logo/CIDRAlogo-w-LabelBlue-Red.svg';
+
 
 const Sidebar = (props) => {
   const [collapseOpen, setCollapseOpen] = useState();
@@ -124,11 +126,19 @@ const Sidebar = (props) => {
         {/* Brand */}
         {logo ? (
           <NavbarBrand className="pt-0" {...navbarBrandProps}>
-            {/* <img
-              alt={logo.imgAlt}
-              className="navbar-brand-img"
-              src={logo.imgSrc}
-            /> */}
+            <div className="text-muted text-center mt-2">
+              <img src={LogoFull} alt="React Logo" style={{ 
+                'box-shadow': 'rgb(38, 57, 77) 0 px 20 px 30 px - 10 px',
+                'box-shadow': 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+                padding: '20px',
+                'border-radius': '50px',
+                'padding-top': '10px',
+                'padding-bottom': '20px',
+                'padding-left': '25px',
+                'padding-right': '10px',
+                 }} />
+            </div>
+            <hr className="mb-0"/>
           </NavbarBrand>
         ) : null}
         {/* User */}
@@ -200,11 +210,11 @@ const Sidebar = (props) => {
                 <Col className="collapse-brand" xs="6">
                   {logo.innerLink ? (
                     <Link to={logo.innerLink}>
-                      {/* <img alt={logo.imgAlt} src={logo.imgSrc} /> */}
+                      <img alt={logo.imgAlt} src={LogoFull} />
                     </Link>
                   ) : (
                     <a href={logo.outterLink}>
-                      {/* <img alt={logo.imgAlt} src={logo.imgSrc} /> */}
+                      <img alt={logo.imgAlt} src={LogoFull} />
                     </a>
                   )}
                 </Col>
