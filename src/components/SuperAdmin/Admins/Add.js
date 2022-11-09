@@ -2,9 +2,7 @@ import React, {
     useEffect,
     useState
 } from 'react'
-import {
-    NotificationManager
-} from 'react-notifications';
+import {NotificationManager} from 'react-notifications';
 import { Button, Col, Form, FormGroup, Input, Row } from 'reactstrap'
 import { addAdmin } from 'services/api/super_admin/admin';
 
