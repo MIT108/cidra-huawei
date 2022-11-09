@@ -41,7 +41,10 @@ import {
 } from 'services/api/auth/actions'
 import {
   NotificationManager
-} from 'react-notifications';
+}
+from 'react-notifications';
+import Logo from '../../assets/logo/CIDRAlogoBlueBg.svg';
+import LogoFull from '../../assets/logo/CIDRAlogo-w-LabelBlue-Red.svg';
 
 const Login = () => {
   const history = useHistory();
@@ -77,54 +80,28 @@ const Login = () => {
 
   return (
     <>
-      <Col lg="5" md="7">
-        <Card className="bg-secondary shadow border-0">
-          <CardHeader className="bg-transparent pb-5">
+      <Col lg="5" md="7" >
+        <Card className="bg-secondary pt-3 border-0"
+          style={{
+            'boxShadow': 'rgba(0, 0, 0, 0.4) 0 px 30 px 90 px'
+          }}
+        >
+          {/* <CardHeader className="bg-transparent pb-5"> */}
             <div className="text-muted text-center mt-2 mb-3">
-              <small>Sign in with</small>
+              <img src={Logo} alt="React Logo" style={{ 
+                width: '30%',
+                'box-shadow': 'rgb(38, 57, 77) 0 px 20 px 30 px - 10 px',
+                'box-shadow': 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+                'border-radius': '50%'
+                 }} />
             </div>
-            <div className="btn-wrapper text-center">
-              <Button
-                className="btn-neutral btn-icon"
-                color="default"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <span className="btn-inner--icon">
-                  <img
-                    alt="..."
-                    src={
-                      require("../../assets/img/icons/common/github.svg")
-                        .default
-                    }
-                  />
-                </span>
-                <span className="btn-inner--text">Github</span>
-              </Button>
-          
-              <Button
-                className="btn-neutral btn-icon"
-                color="default"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <span className="btn-inner--icon">
-                  <img
-                    alt="..."
-                    src={
-                      require("../../assets/img/icons/common/google.svg")
-                        .default
-                    }
-                  />
-                </span>
-                <span className="btn-inner--text">Google</span>
-              </Button>
+            <div className="text-muted text-center mt-2 mb-3">
+              <img src={LogoFull} alt="React Logo" style={{ 
+                width: '30%',
+                 }} />
             </div>
-          </CardHeader>
+          {/* </CardHeader> */}
           <CardBody className="px-lg-5 py-lg-5">
-            <div className="text-center text-muted mb-4">
-              <small>Or sign in with credentials</small>
-            </div>
             <Form role="form">
               <FormGroup className="mb-3">
                 <InputGroup className="input-group-alternative">

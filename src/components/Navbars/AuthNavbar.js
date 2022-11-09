@@ -48,7 +48,7 @@ const AdminNavbar = () => {
                 </Col>
               </Row>
             </div>
-            <Nav className="ml-auto" navbar>  
+            <Nav className="ml-auto card" navbar>  
               <NavItem>
                 <NavLink
                   className="nav-link-icon"
@@ -56,7 +56,7 @@ const AdminNavbar = () => {
                   tag={Link}
                 >
                   <i className="ni ni-circle-08" />
-                  <span className="nav-link-inner--text">Register</span>
+                  <span className="nav-link-inner--text text-black">Register</span>
                 </NavLink>
               </NavItem>
               <NavItem>
