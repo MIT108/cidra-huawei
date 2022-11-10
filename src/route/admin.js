@@ -78,7 +78,7 @@ var admin = [{
     component: ShowPharmacie,
     layout: "/admin",
     show: false,
-},,
+},
 {
     path: "/Admin-ShowDoctor",
     name: "Admin-ShowDoctor",
@@ -86,6 +86,6 @@ var admin = [{
     component: ShowDoctor,
     layout: "/admin",
     show: false,
-},
+}
 ];
 export default admin;
