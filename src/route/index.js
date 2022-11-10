@@ -18,7 +18,8 @@
 import super_admin from './super_admin'
 import admin from './admin'
 import auth from './auth'
+import doctor from './doctor'
 
 var index = []
-index = index.concat(super_admin, admin, auth)
+index = index.concat(super_admin, admin, auth, doctor)
 export default index;

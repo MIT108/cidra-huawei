@@ -18,6 +18,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { StrictMode } from "react";
+
+import FullCalendar from "components/DoctorActions/calendar/FullCalendar";
+import TuiCalendar from "components/DoctorActions/calendar/TuiCalendar";
+import ReactCalendar from "components/DoctorActions/calendar/ReactCalendar";
 
 import "assets/plugins/nucleo/css/nucleo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -36,5 +41,6 @@ root.render(
       <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
       <Redirect  from="/" to="/auth/login" />
     </Switch>
-  </BrowserRouter>
+  </BrowserRouter>,
+  root
 );
