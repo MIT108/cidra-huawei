@@ -2,9 +2,9 @@ import Index from "views/doctor/Index.js";
 import Consultations from "views/doctor/Consultations.js";
 import Appointments from "views/doctor/Appointments";
 import AddConsultation from "components/DoctorActions/AddConsultation"
+import VideoCall from "views/doctor/VideoCall";
 
-var doctor = [
-    {
+var doctor = [{
         path: "/Dashboard",
         name: "Doctor Dashboard",
         icon: "ni ni-tv-2 text-primary",
@@ -12,7 +12,7 @@ var doctor = [
         layout: "/admin",
         show: true,
     },
-    
+
     {
         path: "/Cosultations",
         name: "Doctor Cosultation",
@@ -21,7 +21,7 @@ var doctor = [
         layout: "/admin",
         show: true,
     },
-    
+
     {
         path: "/Appointments",
         name: "Doctor Appointments",
@@ -30,7 +30,7 @@ var doctor = [
         layout: "/admin",
         show: true,
     },
-    
+
     {
         path: "/AddConsultation",
         name: "Add Consultation",
@@ -38,6 +38,14 @@ var doctor = [
         component: AddConsultation,
         layout: "/admin",
         show: false,
+    },
+    {
+        path: "/VideoCall",
+        name: "Video Call",
+        icon: "ni ni-list-67 text-primary",
+        component: VideoCall,
+        layout: "/admin",
+        show: true,
     }
 ];
 export default doctor;
