@@ -25,7 +25,8 @@
   "homepage": "/",
   "scripts": {
     "build": "react-scripts --openssl-legacy-provider build",
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
+    "start-dev": "react-scripts --openssl-legacy-provider start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
