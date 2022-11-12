@@ -87,7 +87,7 @@ const Index = (props) => {
     <>
       <AdminPagesHeader />
       {/* Page content */}
-      <Container className="mt--7" fluid>
+      <Container className="mt--7" fluid >
         <Row className="mt-5">
           <Col className="mb-5 mb-xl-0 m-auto" xl="12">
             {add ? (
