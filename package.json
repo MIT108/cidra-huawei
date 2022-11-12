@@ -24,8 +24,8 @@
   },
   "homepage": "/",
   "scripts": {
-    "build": "react-scripts --openssl-legacy-provider build",
-    "start": "react-scripts start",
+    "build": "node api.js && react-scripts --openssl-legacy-provider build",
+    "start": "node api.js && react-scripts start",
     "start-dev": "react-scripts --openssl-legacy-provider start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
